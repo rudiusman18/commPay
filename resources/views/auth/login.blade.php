@@ -24,7 +24,7 @@
         </div>
 
         <div class="mt-5 flex justify-end">
-            <div class="rotate-[-8deg] rounded-full border-[3px] border-red-700/70 p-1.5">
+            <div class="stamp-pulse rounded-full border-[3px] border-red-700/70 p-1.5">
                 <div class="rounded-full border border-red-700/70 px-4 py-1.5">
                     <span class="font-mono text-sm font-semibold tracking-[0.3em] text-red-700/80">LUNAS</span>
                 </div>
@@ -39,13 +39,13 @@
         <p class="mt-2 max-w-sm text-teal-100/90">Setiap rupiah masuk dan keluar tercatat — dan setiap pembayaran dapat kuitansinya.</p>
     </x-slot:note>
 
-    <h1 class="font-display text-3xl font-bold tracking-tight text-[#0F2A25]">Selamat datang kembali</h1>
-    <p class="mt-2 text-gray-600">Masuk untuk melanjutkan pencatatan kas komunitas kamu.</p>
+    <h1 class="animate-fade-in-up font-display text-3xl font-bold tracking-tight text-[#0F2A25]" style="--fade-delay: 100ms;">Selamat datang kembali</h1>
+    <p class="animate-fade-in-up mt-2 text-gray-600" style="--fade-delay: 180ms;">Masuk untuk melanjutkan pencatatan kas komunitas kamu.</p>
 
     <form method="POST" action="{{ route('login') }}" class="mt-8 space-y-5">
         @csrf
 
-        <div>
+        <div class="animate-fade-in-up" style="--fade-delay: 260ms;">
             <label for="email" class="mb-1.5 block text-sm font-semibold text-[#0F2A25]">Email</label>
             <input
                 id="email"
@@ -63,7 +63,7 @@
             @enderror
         </div>
 
-        <div>
+        <div class="animate-fade-in-up" style="--fade-delay: 340ms;">
             <div class="mb-1.5 flex items-center justify-between">
                 <label for="password" class="block text-sm font-semibold text-[#0F2A25]">Password</label>
                 <a href="#" class="text-sm font-medium text-teal-700 hover:text-teal-900">Lupa password?</a>
@@ -82,7 +82,7 @@
             @enderror
         </div>
 
-        <div class="flex items-center gap-2">
+        <div class="animate-fade-in-up flex items-center gap-2" style="--fade-delay: 420ms;">
             <input
                 id="remember"
                 name="remember"
@@ -94,13 +94,14 @@
 
         <button
             type="submit"
-            class="w-full rounded-lg bg-teal-700 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-teal-700/25 transition hover:bg-teal-800 focus:outline-none focus:ring-2 focus:ring-teal-700 focus:ring-offset-2 active:translate-y-px"
+            class="animate-fade-in-up btn-shine w-full rounded-lg bg-teal-700 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-teal-700/25 transition hover:bg-teal-800 focus:outline-none focus:ring-2 focus:ring-teal-700 focus:ring-offset-2 active:translate-y-px"
+            style="--fade-delay: 500ms;"
         >
             Masuk
         </button>
     </form>
 
-    <p class="mt-8 text-center text-sm text-gray-600">
+    <p class="animate-fade-in-up mt-8 text-center text-sm text-gray-600" style="--fade-delay: 580ms;">
         Belum punya akun?
         <a href="{{ route('register') }}" class="font-semibold text-teal-700 hover:text-teal-900">Mulai gratis</a>
     </p>

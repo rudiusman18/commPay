@@ -24,7 +24,7 @@
         </div>
 
         <div class="mt-5 flex justify-end">
-            <div class="rotate-[-8deg] rounded-full border-[3px] border-red-700/70 p-1.5">
+            <div class="stamp-pulse rounded-full border-[3px] border-red-700/70 p-1.5">
                 <div class="rounded-full border border-red-700/70 px-4 py-1.5">
                     <span class="font-mono text-sm font-semibold tracking-[0.3em] text-red-700/80">GRATIS</span>
                 </div>
@@ -39,13 +39,13 @@
         <p class="mt-2 max-w-sm text-teal-100/90">Tagihan terkirim otomatis, pembayaran terverifikasi, kuitansi siap cetak.</p>
     </x-slot:note>
 
-    <h1 class="font-display text-3xl font-bold tracking-tight text-[#0F2A25]">Buat akun baru</h1>
-    <p class="mt-2 text-gray-600">Daftar gratis — 30 hari pertama tanpa biaya.</p>
+    <h1 class="animate-fade-in-up font-display text-3xl font-bold tracking-tight text-[#0F2A25]" style="--fade-delay: 100ms;">Buat akun baru</h1>
+    <p class="animate-fade-in-up mt-2 text-gray-600" style="--fade-delay: 180ms;">Daftar gratis — 30 hari pertama tanpa biaya.</p>
 
     <form method="POST" action="{{ route('register') }}" class="mt-8 space-y-5">
         @csrf
 
-        <div>
+        <div class="animate-fade-in-up" style="--fade-delay: 260ms;">
             <label for="name" class="mb-1.5 block text-sm font-semibold text-[#0F2A25]">Nama lengkap</label>
             <input
                 id="name"
@@ -63,7 +63,7 @@
             @enderror
         </div>
 
-        <div>
+        <div class="animate-fade-in-up" style="--fade-delay: 340ms;">
             <label for="email" class="mb-1.5 block text-sm font-semibold text-[#0F2A25]">Email</label>
             <input
                 id="email"
@@ -80,7 +80,7 @@
             @enderror
         </div>
 
-        <div>
+        <div class="animate-fade-in-up" style="--fade-delay: 420ms;">
             <label for="password" class="mb-1.5 block text-sm font-semibold text-[#0F2A25]">Password</label>
             <input
                 id="password"
@@ -96,7 +96,7 @@
             @enderror
         </div>
 
-        <div>
+        <div class="animate-fade-in-up" style="--fade-delay: 500ms;">
             <label for="password_confirmation" class="mb-1.5 block text-sm font-semibold text-[#0F2A25]">Ulangi password</label>
             <input
                 id="password_confirmation"
@@ -111,13 +111,14 @@
 
         <button
             type="submit"
-            class="w-full rounded-lg bg-teal-700 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-teal-700/25 transition hover:bg-teal-800 focus:outline-none focus:ring-2 focus:ring-teal-700 focus:ring-offset-2 active:translate-y-px"
+            class="animate-fade-in-up btn-shine w-full rounded-lg bg-teal-700 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-teal-700/25 transition hover:bg-teal-800 focus:outline-none focus:ring-2 focus:ring-teal-700 focus:ring-offset-2 active:translate-y-px"
+            style="--fade-delay: 580ms;"
         >
             Mulai gratis
         </button>
     </form>
 
-    <p class="mt-8 text-center text-sm text-gray-600">
+    <p class="animate-fade-in-up mt-8 text-center text-sm text-gray-600" style="--fade-delay: 660ms;">
         Sudah punya akun?
         <a href="{{ route('login') }}" class="font-semibold text-teal-700 hover:text-teal-900">Masuk</a>
     </p>

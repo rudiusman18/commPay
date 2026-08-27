@@ -4,16 +4,16 @@
 
     <section class="bg-gradient-to-br from-teal-50 via-white to-emerald-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
-            <span class="inline-block px-3 py-1 bg-teal-100 text-teal-700 text-xs font-semibold rounded-full mb-4">Harga</span>
-            <h1 class="font-display text-4xl font-extrabold text-gray-900 mb-4">Harga Jujur, Sesuai Skala Komunitas</h1>
-            <p class="text-gray-600 max-w-2xl mx-auto">Mulai gratis, naik paket saat komunitas tumbuh. Tanpa biaya tersembunyi.</p>
+            <span class="animate-fade-in-up inline-block px-3 py-1 bg-teal-100 text-teal-700 text-xs font-semibold rounded-full mb-4" style="--fade-delay: 100ms;">Harga</span>
+            <h1 class="animate-fade-in-up font-display text-4xl font-extrabold text-gray-900 mb-4" style="--fade-delay: 200ms;">Harga Jujur, Sesuai Skala Komunitas</h1>
+            <p class="animate-fade-in-up text-gray-600 max-w-2xl mx-auto" style="--fade-delay: 300ms;">Mulai gratis, naik paket saat komunitas tumbuh. Tanpa biaya tersembunyi.</p>
         </div>
     </section>
 
     <section class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-3 gap-8 items-stretch">
 
-            <div class="p-8 rounded-2xl border border-gray-200 flex flex-col">
+            <div data-reveal="scale" class="animate-none p-8 rounded-2xl border border-gray-200 flex flex-col">
                 <h3 class="font-display text-lg font-bold text-gray-900">Gratis</h3>
                 <p class="text-sm text-gray-500 mt-1">Untuk komunitas kecil yang baru mulai.</p>
                 <p class="mt-6"><span class="font-display text-4xl font-extrabold text-gray-900">Rp 0</span><span class="text-gray-500 text-sm"> /selamanya</span></p>
@@ -32,7 +32,7 @@
                 </a>
             </div>
 
-            <div class="p-8 rounded-2xl border-2 border-teal-600 flex flex-col relative shadow-xl shadow-teal-600/10">
+            <div data-reveal="scale" style="--reveal-delay: 100ms;" class="animate-none p-8 rounded-2xl border-2 border-teal-600 flex flex-col relative shadow-xl shadow-teal-600/10">
                 <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3 py-1 bg-teal-600 text-white text-xs font-semibold rounded-full">Paling Populer</span>
                 <h3 class="font-display text-lg font-bold text-gray-900">Komunitas</h3>
                 <p class="text-sm text-gray-500 mt-1">Untuk paguyuban & klub yang aktif menagih.</p>
@@ -52,7 +52,7 @@
                 </a>
             </div>
 
-            <div class="p-8 rounded-2xl border border-gray-200 flex flex-col">
+            <div data-reveal="scale" style="--reveal-delay: 200ms;" class="animate-none p-8 rounded-2xl border border-gray-200 flex flex-col">
                 <h3 class="font-display text-lg font-bold text-gray-900">Organisasi</h3>
                 <p class="text-sm text-gray-500 mt-1">Untuk induk organisasi dengan banyak cabang.</p>
                 <p class="mt-6"><span class="font-display text-4xl font-extrabold text-gray-900">Rp 399rb</span><span class="text-gray-500 text-sm"> /bulan</span></p>
@@ -74,7 +74,7 @@
         </div>
     </section>
 
-    <section class="py-16 bg-gray-50">
+    <section data-reveal class="py-16 bg-gray-50">
         <div class="max-w-4xl mx-auto px-4 text-center">
             <p class="text-sm text-gray-600">Semua paket berbayar termasuk trial gratis 30 hari. Batalkan kapan saja tanpa penalti.</p>
         </div>

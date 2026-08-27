@@ -4,16 +4,16 @@
 
     <section class="bg-gradient-to-br from-teal-50 via-white to-emerald-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
-            <span class="inline-block px-3 py-1 bg-teal-100 text-teal-700 text-xs font-semibold rounded-full mb-4">Peran Pengguna</span>
-            <h1 class="font-display text-4xl font-extrabold text-gray-900 mb-4">Satu Platform, Tiga Akses Sempurna</h1>
-            <p class="text-gray-600 max-w-2xl mx-auto">Hak akses dirancang intuitif sesuai tanggung jawab masing-masing bagian. Tidak ada yang melihat lebih dari yang perlu.</p>
+            <span class="animate-fade-in-up inline-block px-3 py-1 bg-teal-100 text-teal-700 text-xs font-semibold rounded-full mb-4" style="--fade-delay: 100ms;">Peran Pengguna</span>
+            <h1 class="animate-fade-in-up font-display text-4xl font-extrabold text-gray-900 mb-4" style="--fade-delay: 200ms;">Satu Platform, Tiga Akses Sempurna</h1>
+            <p class="animate-fade-in-up text-gray-600 max-w-2xl mx-auto" style="--fade-delay: 300ms;">Hak akses dirancang intuitif sesuai tanggung jawab masing-masing bagian. Tidak ada yang melihat lebih dari yang perlu.</p>
         </div>
     </section>
 
     <section class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
 
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div data-reveal class="grid lg:grid-cols-2 gap-12 items-center">
                 <div>
                     <div class="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center mb-5">
                         <svg class="w-6 h-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -33,7 +33,7 @@
                         @endforeach
                     </ul>
                 </div>
-                <div class="bg-gray-50 border border-gray-100 rounded-2xl p-8">
+                <div data-reveal="slide-right" style="--reveal-delay: 150ms;" class="bg-gray-50 border border-gray-100 rounded-2xl p-8">
                     <div class="space-y-3">
                         @foreach ([['Cabang Jakarta Selatan', '128 anggota', '98%'], ['Cabang Bandung', '86 anggota', '94%'], ['Cabang Surabaya', '210 anggota', '91%']] as [$cabang, $anggota, $persen])
                             <div class="flex items-center justify-between bg-white rounded-lg p-4 border border-gray-100">
@@ -48,7 +48,7 @@
                 </div>
             </div>
 
-            <div class="grid lg:grid-cols-2 gap-12 items-center lg:[&>*:first-child]:order-2">
+            <div data-reveal class="grid lg:grid-cols-2 gap-12 items-center lg:[&>*:first-child]:order-2">
                 <div>
                     <div class="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center mb-5">
                         <svg class="w-6 h-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -68,7 +68,7 @@
                         @endforeach
                     </ul>
                 </div>
-                <div class="bg-gray-50 border border-gray-100 rounded-2xl p-8">
+                <div data-reveal="slide-right" style="--reveal-delay: 150ms;" class="bg-gray-50 border border-gray-100 rounded-2xl p-8">
                     <div class="space-y-3">
                         @foreach ([['Tagihan Agustus terkirim', '324 anggota', 'Menunggu 12'], ['Transfer diverifikasi', 'Hari ini', 'Rp 4.250.000'], ['Laporan Juli', 'Siap unduh', 'PDF']] as [$judul, $sub, $nilai])
                             <div class="flex items-center justify-between bg-white rounded-lg p-4 border border-gray-100">
@@ -83,7 +83,7 @@
                 </div>
             </div>
 
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div data-reveal class="grid lg:grid-cols-2 gap-12 items-center">
                 <div>
                     <div class="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center mb-5">
                         <svg class="w-6 h-6 text-teal-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -103,7 +103,7 @@
                         @endforeach
                     </ul>
                 </div>
-                <div class="bg-gray-50 border border-gray-100 rounded-2xl p-8">
+                <div data-reveal="slide-right" style="--reveal-delay: 150ms;" class="bg-gray-50 border border-gray-100 rounded-2xl p-8">
                     <div class="bg-white rounded-lg border border-gray-100 p-5">
                         <p class="font-mono text-[10px] uppercase tracking-[0.3em] text-gray-400">Tagihan Aktif</p>
                         <p class="font-display text-lg font-bold text-gray-900 mt-1">Iuran September 2026</p>
@@ -118,10 +118,10 @@
         </div>
     </section>
 
-    <section class="py-16 bg-gray-50">
+    <section data-reveal class="py-16 bg-gray-50">
         <div class="max-w-4xl mx-auto px-4 text-center">
             <h2 class="font-display text-2xl font-bold text-gray-900 mb-3">Siap atur peran komunitas kamu?</h2>
-            <a href="{{ route('register') }}" class="inline-flex items-center px-6 py-3 bg-teal-600 text-white font-semibold rounded-lg hover:bg-teal-700 transition shadow-lg shadow-teal-600/25">
+            <a href="{{ route('register') }}" class="btn-shine inline-flex items-center px-6 py-3 bg-teal-600 text-white font-semibold rounded-lg hover:bg-teal-700 transition shadow-lg shadow-teal-600/25">
                 Mulai Gratis
             </a>
         </div>

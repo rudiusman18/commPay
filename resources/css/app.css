@@ -12,6 +12,135 @@
     --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
+/* ── Keyframes ────────────────────────────────────────────
+   Dideklarasikan di luar @layer agar selalu ter-emit dan
+   bisa direferenssi oleh class manapun.
+   ──────────────────────────────────────────────────────── */
+@keyframes kuitansi-in {
+    from {
+        opacity: 0;
+        transform: rotate(-2.5deg) translateY(16px);
+    }
+    to {
+        opacity: 1;
+        transform: rotate(-2.5deg) translateY(0);
+    }
+}
+
+@keyframes kuitansi-float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+@keyframes blob-float {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    33% {
+        transform: translate(24px, -28px) scale(1.08);
+    }
+    66% {
+        transform: translate(-18px, 14px) scale(0.95);
+    }
+}
+
+/* Stempel: bake rotate(-8deg) di keyframe supaya tidak
+   konflik dengan Tailwind utility rotate-[...]. */
+@keyframes stamp-pulse {
+    0%, 100% {
+        transform: rotate(-8deg) scale(1);
+        opacity: 0.75;
+    }
+    50% {
+        transform: rotate(-8deg) scale(1.08);
+        opacity: 1;
+    }
+}
+
+@keyframes btn-shine {
+    0% {
+        transform: translateX(-130%) skewX(-18deg);
+    }
+    60%, 100% {
+        transform: translateX(320%) skewX(-18deg);
+    }
+}
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes logo-pop {
+    0% {
+        opacity: 0;
+        transform: scale(0.82);
+    }
+    60% {
+        transform: scale(1.06);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ── Keyframes Dekorasi ────────────────────────────────── */
+
+/* Garis putus-putus bergerak: menggeser offset dash */
+@keyframes dash-march {
+    to {
+        stroke-dashoffset: -24;
+    }
+}
+
+/* Partikel bergerak bebas di area hijau */
+@keyframes particle-float {
+    0%   { transform: translate(0, 0); }
+    25%  { transform: translate(20px, -15px); }
+    50%  { transform: translate(-15px, 20px); }
+    75%  { transform: translate(10px, 15px); }
+    100% { transform: translate(0, 0); }
+}
+
+@keyframes bg-shimmer {
+    from { transform: translateX(-100%) skewX(-15deg); }
+    to   { transform: translateX(400%) skewX(-15deg); }
+}
+
+@keyframes slide-in-right {
+    from {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-in-left {
+    from {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ── Component-style class (di @layer components) ──────── */
 @layer components {
     .receipt-teeth {
         height: 10px;
@@ -19,22 +148,164 @@
             linear-gradient(-45deg, transparent 75%, #ffffff 0) 0 0 / 16px 10px repeat-x,
             linear-gradient(45deg, transparent 75%, #ffffff 0) 0 0 / 16px 10px repeat-x;
     }
-
-    @keyframes kuitansi-in {
-        from {
-            opacity: 0;
-            transform: rotate(-2.5deg) translateY(16px);
-        }
-        to {
-            opacity: 1;
-            transform: rotate(-2.5deg) translateY(0);
-        }
-    }
 }
 
+/* ── Unlayered animation utility classes ─────────────────
+   DI LUAR @layer agar tidak tertimpa @layer utilities Tailwind.
+   ──────────────────────────────────────────────────────── */
+
+/* Kuitansi: slide-in lalu float. */
+.kuitansi-wrapper {
+    animation:
+        kuitansi-in 0.7s ease-out both,
+        kuitansi-float 5s ease-in-out 0.8s infinite !important;
+}
+
+/* Stempel berdenyut: scale + opacity. */
+.stamp-pulse {
+    animation: stamp-pulse 2s ease-in-out infinite !important;
+}
+
+/* Fade-in-up dengan delay via custom property. */
+.animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out both;
+    animation-delay: var(--fade-delay, 0ms);
+}
+
+/* Tombol shine effect. */
+.btn-shine {
+    position: relative;
+    overflow: hidden;
+}
+.btn-shine::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 40%;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(211, 211, 211, 0.5) 50%,
+        transparent 100%
+    );
+    transform: translateX(-150%) skewX(-20deg);
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: overlay;
+}
+.btn-shine:hover::after {
+    animation: btn-shine 0.85s ease-out;
+}
+
+/* ── Dekorasi ─────────────────────────────────────────── */
+
+/* Garis putus-putus receipt bergerak (animated dash). */
+.receipt-border-march {
+    stroke-dasharray: 6 4;
+    animation: dash-march 1.2s linear infinite;
+}
+
+/* Shimmer tipis pada background hijau. */
+.bg-shimmer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(211, 211, 211, 0.08) 50%,
+        transparent 100%
+    );
+    pointer-events: none;
+    z-index: 0;
+    transform: translateX(-100%) skewX(-15deg);
+    animation: bg-shimmer 6s ease-in-out 2s infinite;
+}
+
+/* Slide-in dari kanan dengan delay via custom property. */
+.animate-slide-in-right {
+    animation: slide-in-right 0.7s ease-out both;
+    animation-delay: var(--fade-delay, 0ms);
+}
+
+/* Slide-in dari kiri dengan delay via custom property. */
+.animate-slide-in-left {
+    animation: slide-in-left 0.7s ease-out both;
+    animation-delay: var(--fade-delay, 0ms);
+}
+
+/* Partikel melayang di latar belakang. */
+.particle {
+    position: absolute;
+    width: var(--particle-size, 4px);
+    height: var(--particle-size, 4px);
+    border-radius: 50%;
+    background: rgba(211, 211, 211, var(--particle-opacity, 0.25));
+    animation: particle-float var(--particle-duration, 8s) ease-in-out infinite;
+    animation-delay: var(--particle-delay, 0s);
+    pointer-events: none;
+}
+
+/* ── Scroll Reveal ────────────────────────────────────── */
+[data-reveal] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition-delay: var(--reveal-delay, 0ms);
+}
+[data-reveal].revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+[data-reveal="slide-right"] {
+    transform: translateX(40px);
+}
+[data-reveal="slide-right"].revealed {
+    transform: translateX(0);
+}
+
+[data-reveal="slide-left"] {
+    transform: translateX(-40px);
+}
+[data-reveal="slide-left"].revealed {
+    transform: translateX(0);
+}
+
+[data-reveal="scale"] {
+    transform: scale(0.92);
+}
+[data-reveal="scale"].revealed {
+    transform: scale(1);
+}
+
+/* ── Reduced motion ────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
     .receipt-teeth,
-    [class*='kuitansi-in'] {
+    .kuitansi-wrapper,
+    .stamp-pulse,
+    .btn-shine,
+    .animate-fade-in-up,
+    .animate-slide-in-right,
+    .animate-slide-in-left,
+    .particle,
+    .bg-shimmer,
+    [data-reveal],
+    [class*='blob-float'],
+    [class*='logo-pop'] {
+        animation: none !important;
+    }
+    [data-reveal] {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+    .bg-shimmer::before {
         animation: none !important;
     }
 }
